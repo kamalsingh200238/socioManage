@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = auth()->user();
-        $route = $user->isCoordinator() ? route('coordinator.dashboard') : route('user.dashboard');
+        $route = $user->isCoordinator() ? route('coordinator.dashboard') : route('user.enrolled-societies');
 
        return response()->noContent(302, [HtmxResponse::REDIRECT->value => $route]);
     }
