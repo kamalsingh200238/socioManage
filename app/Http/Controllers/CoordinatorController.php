@@ -18,7 +18,7 @@ class CoordinatorController extends Controller
             ->with('president')
             ->whereLike('name', "%{$search}%")
             ->orderBy('name')
-            ->paginate(perPage: 25, page: $page)
+            ->paginate(perPage: 10, page: $page)
             ->withQueryString();
 
         return view('coordinator.all-societies', [
