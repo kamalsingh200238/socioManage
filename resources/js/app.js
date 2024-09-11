@@ -4,6 +4,7 @@ import htmx from 'htmx.org'
 import _hyperscript from 'hyperscript.org'
 import '@shoelace-style/shoelace/dist/themes/light.css'
 import '@shoelace-style/shoelace/dist/components/input/input.js'
+import '@shoelace-style/shoelace/dist/components/alert/alert.js'
 import '@shoelace-style/shoelace/dist/components/tag/tag.js'
 import '@shoelace-style/shoelace/dist/components/alert/alert.js'
 import '@shoelace-style/shoelace/dist/components/button/button.js'
@@ -22,7 +23,6 @@ document.addEventListener('htmx:responseError', async function () {
         closable: true,
         duration: 5000,
         innerHTML: `
-        <sl-icon name="${icon}" slot="icon"></sl-icon>
         <div class="text-bold">An error occured, please refresh the page</div>
       `,
     })
