@@ -23,8 +23,8 @@
                                 <div class="text-sm font-medium text-gray-900">{{$society->name}}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <sl-tag variant="{{ $society->Active ? 'success' : 'danger' }}" size="small" pill>
-                                    {{$society->Active ? 'Active' : 'Not Active'}}
+                                <sl-tag variant="{{ $society->active ? 'success' : 'danger' }}" size="small" pill>
+                                    {{$society->active ? 'Active' : 'Not Active'}}
                                 </sl-tag>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
