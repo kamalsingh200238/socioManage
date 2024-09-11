@@ -8,14 +8,15 @@ class UserController extends Controller
 {
     public function enrolled()
     {
-        $enrolled = auth()->user()->societies()->orderBy('name')->get();
+        $enrolled = auth()->user()->societies()->orderBy('name')->paginate(10);
         return view('user.enrolled', ['enrolledSocieties' => $enrolled]);
     }
 
     public function notEnrolled()
     {
-        $enrolled = auth()->user()->societies()->orderBy('name')->get();
-        return view('user.enrolled', ['enrolledSocieties' => $enrolled]);
+        $enrolledId = auth()->user()->societies()->pluck('id');
+        $notEnrolled = Society::query()->whereNotIn('id', $enrolledId)->orderBy('name')->paginate(10);
+        return view('user.not-enrolled', ['notEnrolledSocieties' => $notEnrolled]);
     }
 
     public function joinSociety(Society $society)
@@ -23,7 +24,7 @@ class UserController extends Controller
         $user = auth()->user();
         $user->societies()->attach($society->id);
         $user->save();
-        return redirect()->route('user.not-enrolled-society');
+        return redirect()->route('user.not-enrolled-societies');
     }
 
     public function leaveSociety(Society $society)
@@ -31,6 +32,6 @@ class UserController extends Controller
         $user = auth()->user();
         $user->societies()->detach($society->id);
         $user->save();
-        return redirect()->route('user.enrolled-society');
+        return redirect()->route('user.enrolled-societies');
     }
 }
