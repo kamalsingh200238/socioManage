@@ -28,7 +28,7 @@ Route::middleware('auth')
             ->controller(UserController::class)
             ->group(function () {
                 Route::get('/enrolled', 'enrolled')->name('enrolled-societies');
-                Route::get('not-enrolled', 'enrolled')->name('not-enrolled-societies');
+                Route::get('/not-enrolled', 'notEnrolled')->name('not-enrolled-societies');
                 Route::get('/join/{society}', 'joinSociety')->name('join-society');
                 Route::get('/leave/{society}', 'leaveSociety')->name('leave-society');
             });
