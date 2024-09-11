@@ -26,14 +26,14 @@
                         value="{{ old('society_name') ?? '' }}"
                         autofocus
                     ></sl-input>
-                    <x-form-error for="society_name" class="mt-1 text-red-500 text-sm"/>
+                    <x-form-error for="society_name" class="mt-1"/>
 
                     <sl-input
                         name="president_email"
                         label="President email"
                         value="{{ old('president_email') ?? '' }}"
                     ></sl-input>
-                    <x-form-error for="president_email" class="mt-1 text-red-500 text-sm"/>
+                    <x-form-error for="president_email" class="mt-1"/>
 
                     <sl-checkbox
                         name="status"
@@ -41,7 +41,7 @@
                     >
                         Society status
                     </sl-checkbox>
-                    <x-form-error for="status" class="mt-1 text-red-500 text-sm"/>
+                    <x-form-error for="status" class="mt-1"/>
 
                     <sl-button type="submit" variant="primary" class="w-full mt-6">Submit</sl-button>
                 </div>

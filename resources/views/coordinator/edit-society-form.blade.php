@@ -32,7 +32,7 @@
                         label="President email"
                         value="{{ old('president_email') ?? $society->president?->email ?? '' }}"
                     ></sl-input>
-                    <x-form-error for="president_email" class="mt-1 text-red-500 text-sm"/>
+                    <x-form-error for="president_email" class="mt-1"/>
 
                     <sl-checkbox
                         name="status"
@@ -40,7 +40,7 @@
                     >
                         Society status
                     </sl-checkbox>
-                    <x-form-error for="status" class="mt-1 text-red-500 text-sm"/>
+                    <x-form-error for="status" class="mt-1"/>
 
                     <sl-button type="submit" variant="primary" class="w-full mt-6">Submit</sl-button>
                 </div>
