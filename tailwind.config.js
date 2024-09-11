@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+import defaultTheme from 'tailwindcss/defaultTheme'
+import forms from '@tailwindcss/forms'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,7 +8,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-    darkMode: "class",
+    darkMode: 'class',
     theme: {
         extend: {
             backgroundImage: {
@@ -19,14 +19,14 @@ export default {
             },
             keyframes: {
                 loading: {
-                    '0%': {transform: 'translateX(-100%)'},
-                    '100%': {transform: 'translateX(400%)'},
-                }
+                    '0%': { transform: 'translateX(-100%)' },
+                    '100%': { transform: 'translateX(400%)' },
+                },
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
     },
-    plugins: [forms({strategy: "class"})],
-};
+    plugins: [forms({ strategy: 'class' })],
+}

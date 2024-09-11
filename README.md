@@ -1,4 +1,4 @@
 # Tasks
 
-- [ ] Enrolled society page
-- [ ] Not Enrolled society page
+-   [ ] Enrolled society page
+-   [ ] Not Enrolled society page
