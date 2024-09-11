@@ -43,6 +43,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="mt-8" hx-boost="true" hx-replace-url="true">
+                {{ $enrolledSocieties->links() }}
+            </div>
         </div>
     </div>
 </x-dashboard-layout>
