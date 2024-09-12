@@ -20,31 +20,36 @@
             >
                 @csrf
                 <div class="space-y-4">
-                    <sl-input
-                        name="society_name"
-                        label="Society name"
-                        value="{{ old('society_name') ?? '' }}"
-                        autofocus
-                    ></sl-input>
-                    <x-form-error for="society_name" class="mt-1"/>
+                    <div>
+                        <sl-input
+                            name="society_name"
+                            label="Society name"
+                            value="{{ old('society_name') ?? '' }}"
+                            autofocus
+                        ></sl-input>
+                        <x-form-error for="society_name" class="mt-1"/>
+                    </div>
 
-                    <sl-input
-                        name="president_email"
-                        label="President email"
-                        value="{{ old('president_email') ?? '' }}"
-                    ></sl-input>
-                    <x-form-error for="president_email" class="mt-1"/>
+                    <div>
+                        <sl-input
+                            name="president_email"
+                            label="President email"
+                            value="{{ old('president_email') ?? '' }}"
+                        ></sl-input>
+                        <x-form-error for="president_email" class="mt-1"/>
+                    </div>
 
-                    <sl-checkbox
-                        name="status"
-                        checked="{{old('status') ?? false}}"
-                    >
-                        Society status
-                    </sl-checkbox>
-                    <x-form-error for="status" class="mt-1"/>
-
-                    <sl-button type="submit" variant="primary" class="w-full mt-6">Submit</sl-button>
+                    <div>
+                        <sl-checkbox
+                            name="status"
+                            checked="{{old('status') ?? false}}"
+                        >
+                            Society status
+                        </sl-checkbox>
+                        <x-form-error for="status" class="mt-1"/>
+                    </div>
                 </div>
+                <sl-button type="submit" variant="primary" class="w-full mt-4">Submit</sl-button>
             </form>
         </div>
     </div>
