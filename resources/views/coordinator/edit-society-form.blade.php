@@ -14,36 +14,40 @@
             <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">Edit Society</h2>
             <form
                 id="edit-form"
-                hx-patch="{{ route('coordinator.edit-society', ['society' => $society->id]) }}"
+                hx-post="{{ route('coordinator.edit-society', ['society' => $society->id]) }}"
                 hx-target="this"
                 hx-select="#edit-form"
             >
                 @csrf
+                @method('PATCH')
                 <div class="space-y-4">
-                    <sl-input
-                        name="society_name" label="Society name"
-                        value="{{ old('society_name') ?? $society->name }}"
-                        autofocus
-                    ></sl-input>
-                    <x-form-error for="society_name" class="mt-1 text-red-500 text-sm"/>
-
-                    <sl-input
-                        name="president_email"
-                        label="President email"
-                        value="{{ old('president_email') ?? $society->president?->email ?? '' }}"
-                    ></sl-input>
-                    <x-form-error for="president_email" class="mt-1"/>
-
-                    <sl-checkbox
-                        name="status"
-                        checked="{{$society->active}}"
-                    >
-                        Society status
-                    </sl-checkbox>
-                    <x-form-error for="status" class="mt-1"/>
-
-                    <sl-button type="submit" variant="primary" class="w-full mt-6">Submit</sl-button>
+                    <div>
+                        <sl-input
+                            name="society_name" label="Society name"
+                            value="{{ old('society_name') ?? $society->name }}"
+                            autofocus
+                        ></sl-input>
+                        <x-form-error for="society_name" class="mt-1 text-red-500 text-sm"/>
+                    </div>
+                    <div>
+                        <sl-input
+                            name="president_email"
+                            label="President email"
+                            value="{{ old('president_email') ?? $society->president?->email ?? '' }}"
+                        ></sl-input>
+                        <x-form-error for="president_email" class="mt-1"/>
+                    </div>
+                    <div>
+                        <sl-checkbox
+                            name="status"
+                            checked="{{$society->active}}"
+                        >
+                            Society status
+                        </sl-checkbox>
+                        <x-form-error for="status" class="mt-1"/>
+                    </div>
                 </div>
+                <sl-button type="submit" variant="primary" class="w-full mt-6">Submit</sl-button>
             </form>
         </div>
     </div>
