@@ -14,6 +14,14 @@
                         Coordinator Dashboard
                     </x-sidebar-link>
                 @endif
+                @if(auth()->user()->isPresident())
+                    <x-sidebar-link
+                        href="{{route('coordinator.dashboard')}}"
+                        :active="request()->routeIs('coordinator.dashboard')"
+                    >
+                        Coordinator Dashboard
+                    </x-sidebar-link>
+                @endif
                 <x-sidebar-link
                     href="{{route('user.enrolled-societies')}}"
                     :active="request()->routeIs('user.enrolled-societies')"
@@ -43,7 +51,8 @@
                                     <sl-icon slot="prefix" name="person"></sl-icon>
                                     <div>
                                         Profile
-                                        <a id="profile-link" hx-boost="true" class="hidden" href="{{route('profile.edit')}}">Hidden profile link</a>
+                                        <a id="profile-link" hx-boost="true" class="hidden"
+                                           href="{{route('profile.edit')}}">Hidden profile link</a>
                                     </div>
                                 </sl-menu-item>
                                 <sl-menu-item value="logout" _="on click send submit to #logout-form">
