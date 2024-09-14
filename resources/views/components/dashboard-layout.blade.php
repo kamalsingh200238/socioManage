@@ -40,6 +40,7 @@
                             <sl-avatar slot="trigger" label="user avatar" class="[--size:2rem]"></sl-avatar>
                             <sl-menu>
                                 <sl-menu-item value="profile" _="on click send click to #profile-link">
+                                    <sl-icon slot="prefix" name="person"></sl-icon>
                                     <div>
                                         Profile
                                         <a id="profile-link" hx-boost="true" class="hidden" href="{{route('profile.edit')}}">Hidden profile link</a>
@@ -47,6 +48,7 @@
                                 </sl-menu-item>
                                 <sl-menu-item value="logout" _="on click send submit to #logout-form">
                                     Logout
+                                    <sl-icon slot="prefix" name="box-arrow-in-right"></sl-icon>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" hx-boost="true">
                                         @csrf
                                     </form>
