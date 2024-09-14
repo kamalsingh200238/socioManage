@@ -13,9 +13,16 @@
                 hx-replace-url="true"
                 hx-indicator="#societies-spinner"
             ></sl-input>
-            <div id="societies-spinner" class="border-gray-300 h-6 w-6 animate-spin rounded-full border-4 border-t-sky-800 [.htmx-request&]:block hidden"></div>
+            <div id="societies-spinner"
+                 class="border-gray-300 h-6 w-6 animate-spin rounded-full border-4 border-t-sky-800 [.htmx-request&]:block hidden"
+            ></div>
         </div>
-        <sl-button href="{{route('coordinator.create-society-form')}}" variant="primary" size="small">Create society
+        <sl-button
+            href="{{route('coordinator.create-society-form')}}"
+            variant="primary"
+            size="small"
+        >
+            Create society
         </sl-button>
     </div>
     <div id="societies-table" class="mt-8">
@@ -66,9 +73,13 @@
                             </sl-button>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <sl-button href="{{ route('coordinator.edit-society-form', ['society'=>$society->id]) }}"
-                                       variant="text" class="[--sl-spacing-medium:0]">Edit
-                            </sl-button>
+                            <sl-icon-button
+                                name="pencil-square"
+                                class="text-base"
+                                label="Edit"
+                                href="{{ route('coordinator.edit-society-form', ['society'=>$society->id]) }}"
+                            >
+                            </sl-icon-button>
                         </td>
                     </tr>
                 @endforeach
