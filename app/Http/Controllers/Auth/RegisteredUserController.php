@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return response()->noContent(302, [HtmxResponse::REDIRECT->value => route('user.dashboard')]);
+        return response()->noContent(302, [HtmxResponse::REDIRECT->value => route('user.enrolled-societies')]);
     }
 
     /**
