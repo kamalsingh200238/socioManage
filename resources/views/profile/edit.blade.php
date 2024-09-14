@@ -43,7 +43,7 @@
                                 required
                                 autocomplete="name"
                             ></sl-input>
-                            <x-input-error class="mt-1" :messages="$errors->get('name')"/>
+                            <x-form-error class="mt-1" for="name"/>
                         </div>
 
                         <div>
@@ -58,7 +58,7 @@
                                 required
                                 autocomplete="username"
                             ></sl-input>
-                            <x-input-error class="mt-1" :messages="$errors->get('email')"/>
+                            <x-form-error class="mt-1" for="email"/>
 
                             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                                 <div class="mt-1 text-sm">
@@ -119,8 +119,8 @@
                                 class="max-w-sm"
                                 autocomplete="current-password"
                             ></sl-input>
-                            <x-input-error
-                                :messages="$errors->updatePassword->get('current_password')"
+                            <x-form-error
+                                for="current_password"
                                 class="mt-1"
                             />
                         </div>
@@ -135,7 +135,7 @@
                                 class="max-w-sm"
                                 autocomplete="new-password"
                             ></sl-input>
-                            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-1"/>
+                            <x-form-error for="password" class="mt-1"/>
                         </div>
 
                         <div>
@@ -148,8 +148,8 @@
                                 class="max-w-sm"
                                 autocomplete="new-password"
                             ></sl-input>
-                            <x-input-error
-                                :messages="$errors->updatePassword->get('password_confirmation')"
+                            <x-form-error
+                                for="password_confirmation"
                                 class="mt-1"
                             />
                         </div>
@@ -212,7 +212,7 @@
                                     placeholder="{{ __('Password') }}"
                                     required
                                 ></sl-input>
-                                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-1"/>
+                                <x-form-error for="password" class="mt-1"/>
                             </div>
                         </form>
 
