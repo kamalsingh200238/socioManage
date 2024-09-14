@@ -16,9 +16,6 @@
                 method="POST"
                 action="{{ route('password.store') }}"
                 id="reset-password-form"
-                hx-post="{{ route('password.store') }}"
-                hx-target="this"
-                hx-select="#reset-password-form"
             >
                 @csrf
 
