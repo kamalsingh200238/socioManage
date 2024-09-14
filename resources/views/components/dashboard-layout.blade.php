@@ -14,18 +14,18 @@
                         Coordinator Dashboard
                     </x-sidebar-link>
                 @endif
-                    <x-sidebar-link
-                        href="{{route('user.enrolled-societies')}}"
-                        :active="request()->routeIs('user.enrolled-societies')"
-                    >
-                        Enrolled Societies
-                    </x-sidebar-link>
-                    <x-sidebar-link
-                        href="{{route('user.not-enrolled-societies')}}"
-                        :active="request()->routeIs('user.not-enrolled-societies')"
-                    >
-                        Not Enrolled Societies
-                    </x-sidebar-link>
+                <x-sidebar-link
+                    href="{{route('user.enrolled-societies')}}"
+                    :active="request()->routeIs('user.enrolled-societies')"
+                >
+                    Enrolled Societies
+                </x-sidebar-link>
+                <x-sidebar-link
+                    href="{{route('user.not-enrolled-societies')}}"
+                    :active="request()->routeIs('user.not-enrolled-societies')"
+                >
+                    Not Enrolled Societies
+                </x-sidebar-link>
             </nav>
         </aside>
 
@@ -35,13 +35,19 @@
             <header class="bg-white shadow-md">
                 <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                     <h2 class="text-xl font-semibold text-gray-800">Welcome, {{ auth()->user()->name ?? "Guest" }}</h2>
-                    <div class="flex items-center space-x-4">
+                    <div>
                         <sl-dropdown placement="bottom-end">
                             <sl-avatar slot="trigger" label="user avatar" class="[--size:2rem]"></sl-avatar>
                             <sl-menu>
-                                <sl-menu-item value="logout" _="on click call #logout-form.submit()">
+                                <sl-menu-item value="profile" _="on click send click to #profile-link">
+                                    <div>
+                                        Profile
+                                        <a id="profile-link" hx-boost="true" class="hidden" href="{{route('profile.edit')}}">Hidden profile link</a>
+                                    </div>
+                                </sl-menu-item>
+                                <sl-menu-item value="logout" _="on click send submit to #logout-form">
                                     Logout
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" hx-boost="true">
                                         @csrf
                                     </form>
                                 </sl-menu-item>
