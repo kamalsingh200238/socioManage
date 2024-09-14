@@ -2,6 +2,14 @@
     <div
         class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-cyan-900 to-slate-900 p-4"
     >
+        <sl-button
+            variant="text"
+            href="{{ url()->previous() }}"
+            class="absolute top-4 left-4 [--sl-color-primary-600:white]"
+        >
+            Back
+        </sl-button>
+
         <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-md">
             <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">Confirm Password</h2>
 
