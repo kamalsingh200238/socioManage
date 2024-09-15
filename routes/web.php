@@ -4,6 +4,7 @@ use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PresidentController;
+use App\UserRole;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,6 +17,7 @@ Route::middleware('auth')
 
         Route::prefix('coordinator')
             ->name('coordinator.')
+            ->middleware('check.role:' . UserRole::SOCIETY_COORDINATOR->value)
             ->group(function () {
                 Route::get('', [CoordinatorController::class, 'index'])->name('dashboard');
                 Route::get('/status/{society}', [CoordinatorController::class, 'toggleSocietyStatus'])->name('toggle-society-status');
@@ -35,6 +37,7 @@ Route::middleware('auth')
             });
 
         Route::name('president.')
+            ->middleware('check.role:' . UserRole::SOCIETY_PRESIDENT->value)
             ->controller(PresidentController::class)
             ->group(function () {
                 Route::get('/society-members', 'societyMembers')->name('society-members');
