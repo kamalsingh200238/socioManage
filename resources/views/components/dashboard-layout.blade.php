@@ -3,7 +3,7 @@
         <!-- Sidebar -->
         <aside class="w-60 bg-slate-900 text-white px-2 flex flex-col">
             <p class="p-4 text-2xl font-bold">
-                Dashboard
+                Socio Manage
             </p>
             <nav class="mt-8 space-y-2 text-sm" hx-boost="true">
                 @if(auth()->user()->isCoordinator())
