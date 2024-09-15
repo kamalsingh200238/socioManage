@@ -16,10 +16,10 @@
                 @endif
                 @if(auth()->user()->isPresident())
                     <x-sidebar-link
-                        href="{{route('coordinator.dashboard')}}"
-                        :active="request()->routeIs('coordinator.dashboard')"
+                        href="{{route('president.society-members')}}"
+                        :active="request()->routeIs('president.society-members')"
                     >
-                        Coordinator Dashboard
+                        Society Members
                     </x-sidebar-link>
                 @endif
                 <x-sidebar-link
