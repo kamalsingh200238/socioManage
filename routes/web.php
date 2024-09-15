@@ -3,6 +3,7 @@
 use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PresidentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,6 +34,11 @@ Route::middleware('auth')
                 Route::get('/leave/{society}', 'leaveSociety')->name('leave-society');
             });
 
+        Route::name('president.')
+            ->controller(PresidentController::class)
+            ->group(function () {
+                Route::get('/society-members', 'societyMembers')->name('society-members');
+            });
     });
 
 Route::middleware('auth')->group(function () {
